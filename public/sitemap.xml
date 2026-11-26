@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://newstelagualbertodoceria.pages.dev/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://newstelagualbertodoceria.pages.dev/img/bolos.webp</image:loc>
+      <image:title>Bolos Autorais da Stela Gualberto Doceria em Divinópolis</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://newstelagualbertodoceria.pages.dev/img/tortas.webp</image:loc>
+      <image:title>Tortas Cremosas da Stela Gualberto Doceria</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://newstelagualbertodoceria.pages.dev/img/doces-finos.webp</image:loc>
+      <image:title>Doces Finos Artesanais para Festas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://newstelagualbertodoceria.pages.dev/img/presentes.webp</image:loc>
+      <image:title>Latas e Caixas Presenteáveis Minha doçura, pra você!</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://newstelagualbertodoceria.pages.dev/linkbio</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://newstelagualbertodoceria.pages.dev/politica-de-privacidade</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+</urlset>

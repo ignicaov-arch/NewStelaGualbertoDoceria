@@ -1,0 +1,132 @@
+---
+import '../styles/site.css';
+import { AtelierSection } from '../components/AtelierSection';
+import { BentoCategories } from '../components/BentoCategories';
+import { CookieConsent } from '../components/CookieConsent';
+import { FaqSection } from '../components/FaqSection';
+import { FooterSection } from '../components/FooterSection';
+import { GiftPackagingSection } from '../components/GiftPackagingSection';
+import { HeaderPill } from '../components/HeaderPill';
+import { HeroSection } from '../components/HeroSection';
+import { HowItWorksSection } from '../components/HowItWorksSection';
+import { LocationSection } from '../components/LocationSection';
+import { MarqueeRibbon } from '../components/MarqueeRibbon';
+import { MenuPackages } from '../components/MenuPackages';
+import { OrderFormSection } from '../components/OrderFormSection';
+import { TestimonialsSection } from '../components/TestimonialsSection';
+import { WhatsAppFloat } from '../components/WhatsAppFloat';
+import { BRAND } from '../data/brand';
+import { buildSiteSchemaGraph } from '../domain/seoSchema';
+
+const schemaJson = buildSiteSchemaGraph('home');
+const speculationJson = JSON.stringify({
+  prerender: [
+    {
+      where: {
+        href_matches: ['/linkbio', '/politica-de-privacidade'],
+      },
+      eagerness: 'moderate',
+    },
+  ],
+});
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Stela Gualberto Doceria | Bolos e Doces em Divinópolis</title>
+  <meta
+    name="description"
+    content="Doceria artesanal no Centro de Divinópolis por Stela Gualberto. Vitrine diária de fatias e tortas, bolos comemorativos, doces finos e latas presenteáveis."
+  />
+  <meta name="author" content={BRAND.founder} />
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  />
+  <link rel="canonical" href="https://newstelagualbertodoceria.pages.dev/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content={BRAND.fullName} />
+  <meta property="og:url" content={`${BRAND.siteUrl}/`} />
+  <meta property="og:title" content="Stela Gualberto Doceria | Bolos e Doces em Divinópolis" />
+  <meta
+    property="og:description"
+    content="Vitrine fresca no Centro de Divinópolis, bolos autorais, tortas cremosas, doces finos e presentes Minha doçura, pra você!"
+  />
+  <meta property="og:image" content={`${BRAND.siteUrl}/img/og-stela-1200x630.webp`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta
+    property="og:image:alt"
+    content="Identidade oficial da Stela Gualberto Doceria com o slogan Minha doçura, pra você!"
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stela Gualberto Doceria | Bolos e Doces em Divinópolis" />
+  <meta
+    name="twitter:description"
+    content="Bolos comemorativos, tortas, doces finos e caixas presenteáveis no Centro de Divinópolis."
+  />
+  <meta name="twitter:image" content={`${BRAND.siteUrl}/img/og-stela-1200x630.webp`} />
+  <meta name="theme-color" content="#32221F" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link
+    rel="preload"
+    as="image"
+    href="/img/hero.webp"
+    imagesrcset="/img/hero-800.webp 800w, /img/hero.webp 1600w"
+    imagesizes="(max-width: 860px) 100vw, 48vw"
+    fetchpriority="high"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+  <script is:inline type="application/ld+json" set:html={schemaJson.replace(/</g, '\\u003c')} />
+  <script is:inline type="speculationrules" set:html={speculationJson.replace(/</g, '\\u003c')} />
+</head>
+<body>
+  <header class="topo">
+    <HeaderPill client:load />
+  </header>
+
+  <main id="conteudo-principal">
+    <HeroSection>
+      <h1 class="hero__titulo">
+        Confeitaria artesanal com <em>alma afetiva</em> em Divinópolis.
+      </h1>
+    </HeroSection>
+    <MarqueeRibbon client:load />
+    <BentoCategories />
+    <AtelierSection />
+    <MenuPackages />
+    <GiftPackagingSection />
+    <HowItWorksSection />
+    <TestimonialsSection />
+    <FaqSection />
+    <OrderFormSection />
+    <LocationSection />
+
+    <aside class="container max-w-7xl" style="padding-block: 16px 32px; font-size: 0.85rem; color: var(--texto-suave);">
+      Curadoria e receitas autorais de <strong>{BRAND.founder}</strong> ({BRAND.founderRole}) · Atualizado em{' '}
+      <time datetime={BRAND.updatedIso}>{BRAND.updatedDisplay}</time>.
+    </aside>
+  </main>
+
+  <footer class="rodape">
+    <FooterSection />
+  </footer>
+  <CookieConsent />
+  <WhatsAppFloat />
+
+  <script>
+    import '../scripts/smoothMotion';
+    import '../scripts/interactions';
+  </script>
+</body>
+</html>

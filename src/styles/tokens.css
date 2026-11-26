@@ -1,0 +1,49 @@
+/* Tokens oficiais da Stela Gualberto Doceria (regra 60-30-10 + Apple Concentricity + 144Hz) */
+:root {
+  /* 60% Dominante (Fundos e papelaria editorial) */
+  --creme: #F8F3EE;
+  --papel: #FDFBF8;
+  --areia: #EFE4DA;
+
+  /* 30% Estrutural (Tipografia, superfcies de apoio e marca) */
+  --tinta: #32221F;
+  --tinta-2: #46312D;
+  --texto: #32221F;
+  --texto-suave: #6B524C;
+  --pessego-marca: #F2BEB3;
+  --pessego-blush: #FCEBE7;
+
+  /* 10% Acento (Conversão e detalhes dourados) */
+  --terracota: #B6493B;
+  --terracota-viva: #C95647;
+  --ouro: #C89F62;
+
+  /* Tipografia */
+  --fonte-display: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  --fonte-serif: 'Instrument Serif', Georgia, serif;
+
+  /* Curvas e velocidades 144Hz */
+  --curva-144: cubic-bezier(0.22, 1, 0.36, 1);
+  --curva-mola: cubic-bezier(0.34, 1.45, 0.64, 1);
+  --dur-rapida: 180ms;
+  --dur-media: 340ms;
+  --dur-lenta: 620ms;
+
+  /* Lei Sagrada dos Cantos Concêntricos Apple: R_ext = R_int + Padding */
+  --raio: 28px;
+  --pad-card: 16px;
+  --raio-interno: calc(var(--raio) - var(--pad-card));
+  --raio-pilula: 999px;
+  --raio-grande: 36px;
+
+  /* Elevação e bordas sutis */
+  --borda-sutil: 1px solid rgba(50, 34, 31, 0.1);
+  --borda-escura: 1px solid rgba(248, 243, 238, 0.14);
+  --sombra-suave: 0 10px 32px -12px rgba(50, 34, 31, 0.1);
+  --sombra-card: 0 18px 46px -18px rgba(50, 34, 31, 0.14);
+  --sombra-pilula: 0 12px 34px -10px rgba(50, 34, 31, 0.16);
+
+  /* Layout */
+  --largura-max: 1240px;
+  --gutter: clamp(16px, 3vw, 32px);
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Stela Gualberto Doceria",
+  "short_name": "Stela Gualberto",
+  "description": "Minha doçura, pra você! Confeitaria artesanal em Divinópolis MG.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F3EE",
+  "theme_color": "#32221F",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/img/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+---
+import '../styles/site.css';
+import { CookieConsent } from '../components/CookieConsent';
+import { FooterSection } from '../components/FooterSection';
+import { HeaderPill } from '../components/HeaderPill';
+import { WhatsAppFloat } from '../components/WhatsAppFloat';
+import { BRAND } from '../data/brand';
+import { buildSiteSchemaGraph } from '../domain/seoSchema';
+import { buildWhatsAppUrl } from '../domain/whatsapp';
+
+const schemaJson = buildSiteSchemaGraph('privacy');
+const lgpdWhatsApp = buildWhatsAppUrl(
+  'Olá! Gostaria de falar com o atendimento sobre privacidade e dados pessoais (LGPD).',
+);
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Política de Privacidade e LGPD | Stela Gualberto Doceria</title>
+  <meta
+    name="description"
+    content="Política de Privacidade e gestão de consentimento LGPD da Stela Gualberto Doceria em Divinópolis MG. Saiba como tratamos preferências e dados de contato."
+  />
+  <meta name="author" content={BRAND.founder} />
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  />
+  <link rel="canonical" href="https://newstelagualbertodoceria.pages.dev/politica-de-privacidade" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content={BRAND.fullName} />
+  <meta property="og:url" content={`${BRAND.siteUrl}/politica-de-privacidade`} />
+  <meta property="og:title" content="Política de Privacidade e LGPD | Stela Gualberto Doceria" />
+  <meta
+    property="og:description"
+    content="Transparência no uso de cookies essenciais e atendimento aos direitos do titular conforme a LGPD."
+  />
+  <meta property="og:image" content={`${BRAND.siteUrl}/img/og-stela-1200x630.webp`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="theme-color" content="#32221F" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+  <script is:inline type="application/ld+json" set:html={schemaJson.replace(/</g, '\\u003c')} />
+</head>
+<body>
+  <header class="topo">
+    <HeaderPill client:load />
+  </header>
+
+  <main id="conteudo-privacidade" class="container max-w-5xl" style="padding-block: 48px 72px;">
+    <article
+      style={{
+        padding: 'clamp(24px, 4vw, 44px)',
+        borderRadius: 'var(--raio-grande)',
+        backgroundColor: 'var(--papel)',
+        border: 'var(--borda-sutil)',
+        boxShadow: 'var(--sombra-suave)',
+      }}
+    >
+      <span class="eyebrow">Transparência e LGPD</span>
+      <h1 class="titulo-secao">
+        Política de <em>Privacidade</em> da {BRAND.fullName}
+      </h1>
+      <p style="color: var(--texto-suave);">
+        Última atualização em <time datetime={BRAND.updatedIso}>{BRAND.updatedDisplay}</time>.
+      </p>
+
+      <h2 style="margin: 28px 0 10px; font-size: 1.3rem;">1. Coleta mínima e finalidade</h2>
+      <p style="color: var(--texto-suave);">
+        Este site institucional apresenta o cardápio, os horários da loja em Divinópolis e atalhos para atendimento direto pelo WhatsApp. O simulador de encomendas gera uma mensagem local no seu próprio navegador sem armazenar formulários em servidores externos.
+      </p>
+
+      <h2 style="margin: 24px 0 10px; font-size: 1.3rem;">2. Cookies e consentimento granular</h2>
+      <p style="color: var(--texto-suave);">
+        Utilizamos armazenamento local estritamente necessário para registrar sua escolha de privacidade. Categorias opcionais (funcionais e analíticos) permanecem desativadas por padrão até seu aceite explícito, podendo ser alteradas a qualquer momento pelo botão abaixo.
+      </p>
+
+      <h2 style="margin: 24px 0 10px; font-size: 1.3rem;">3. Direitos do titular (Art. 18 da LGPD)</h2>
+      <p style="color: var(--texto-suave);">
+        Você pode solicitar confirmação de tratamento, acesso, correção ou eliminação de dados compartilhados em atendimentos comerciais diretamente com nosso canal de Encarregado (DPO) pelo WhatsApp oficial ({BRAND.whatsappDisplay}) ou presencialmente na {BRAND.address.full}.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px;">
+        <button type="button" data-cookie-open="" class="btn btn--primario">
+          Gerenciar preferências de cookies
+        </button>
+        <a
+          href={lgpdWhatsApp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--secundario text-current"
+          style="color: #32221F;"
+        >
+          Falar com atendimento LGPD
+        </a>
+        <a href="/" class="btn btn--secundario text-current" style="color: #32221F;">
+          Voltar ao início
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="rodape">
+    <FooterSection />
+  </footer>
+  <CookieConsent />
+  <WhatsAppFloat />
+
+  <script>
+    import '../scripts/smoothMotion';
+    import '../scripts/interactions';
+  </script>
+</body>
+</html>

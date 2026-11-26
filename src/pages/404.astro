@@ -1,0 +1,98 @@
+---
+import '../styles/site.css';
+import { CookieConsent } from '../components/CookieConsent';
+import { FooterSection } from '../components/FooterSection';
+import { HeaderPill } from '../components/HeaderPill';
+import { WhatsAppFloat } from '../components/WhatsAppFloat';
+import { BRAND } from '../data/brand';
+import { buildSiteSchemaGraph } from '../domain/seoSchema';
+import { buildWhatsAppUrl } from '../domain/whatsapp';
+
+const schemaJson = buildSiteSchemaGraph('home');
+const helpHref = buildWhatsAppUrl(
+  'Olá! Não encontrei uma página no site da Stela Gualberto Doceria e gostaria de ajuda.',
+);
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Página não encontrada | Stela Gualberto Doceria</title>
+  <meta
+    name="description"
+    content="O endereço acessado não foi encontrado. Volte à página inicial da Stela Gualberto Doceria, acesse nosso LinkBio ou fale conosco no WhatsApp."
+  />
+  <meta name="author" content={BRAND.founder} />
+  <link rel="canonical" href="https://newstelagualbertodoceria.pages.dev/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Página não encontrada | Stela Gualberto Doceria" />
+  <meta property="og:image" content={`${BRAND.siteUrl}/img/og-stela-1200x630.webp`} />
+  <meta name="theme-color" content="#32221F" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+  <script is:inline type="application/ld+json" set:html={schemaJson.replace(/</g, '\\u003c')} />
+</head>
+<body>
+  <header class="topo">
+    <HeaderPill client:load />
+  </header>
+
+  <main id="conteudo-404" class="container max-w-5xl" style="padding-block: 64px 88px; text-align: center;">
+    <section
+      style={{
+        padding: 'clamp(28px, 5vw, 56px)',
+        borderRadius: 'var(--raio-grande)',
+        backgroundColor: 'var(--papel)',
+        border: 'var(--borda-sutil)',
+        boxShadow: 'var(--sombra-card)',
+      }}
+    >
+      <span class="eyebrow">Erro 404</span>
+      <h1 class="titulo-secao">
+        Essa receita mudou de lugar ou <em>não existe</em>.
+      </h1>
+      <p style="max-width: 52ch; margin: 0 auto 28px; color: var(--texto-suave);">
+        Você pode voltar para a vitrine principal da {BRAND.fullName}, abrir nosso LinkBio rápido ou falar diretamente pelo WhatsApp.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
+        <a href="/" class="btn btn--primario text-white" style="color: #FDFBF8;">
+          Voltar para o início
+        </a>
+        <a href="/linkbio" class="btn btn--secundario text-current" style="color: #32221F;">
+          Abrir LinkBio
+        </a>
+        <a
+          href={helpHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--secundario text-current"
+          style="color: #32221F;"
+        >
+          Falar no WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <FooterSection />
+  </footer>
+  <CookieConsent />
+  <WhatsAppFloat />
+
+  <script>
+    import '../scripts/smoothMotion';
+    import '../scripts/interactions';
+  </script>
+</body>
+</html>

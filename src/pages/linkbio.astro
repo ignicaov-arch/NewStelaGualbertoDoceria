@@ -1,0 +1,166 @@
+---
+import '../styles/site.css';
+import '../styles/linkbio.css';
+import { CookieConsent } from '../components/CookieConsent';
+import { WhatsAppFloat } from '../components/WhatsAppFloat';
+import { LinkBioCards } from '../components/linkbio/LinkBioCards';
+import { LinkBioHero } from '../components/linkbio/LinkBioHero';
+import { LinkBioShowcase } from '../components/linkbio/LinkBioShowcase';
+import { BRAND } from '../data/brand';
+import { buildSiteSchemaGraph } from '../domain/seoSchema';
+import { sanitizeUrl } from '../domain/whatsapp';
+
+const schemaJson = buildSiteSchemaGraph('linkbio');
+const speculationJson = JSON.stringify({
+  prerender: [{ where: { href_matches: ['/'] }, eagerness: 'moderate' }],
+});
+const safeInstagramHref = sanitizeUrl(BRAND.instagramUrl);
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Links Oficiais e Cardápio | Stela Gualberto Doceria</title>
+  <meta
+    name="description"
+    content="Links oficiais da Stela Gualberto Doceria em Divinópolis: pedidos no WhatsApp, vitrine de pronta entrega, site completo, avaliações no Google e mapa."
+  />
+  <meta name="author" content={BRAND.founder} />
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  />
+  <link rel="canonical" href="https://newstelagualbertodoceria.pages.dev/linkbio" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content={BRAND.fullName} />
+  <meta property="og:url" content={`${BRAND.siteUrl}/linkbio`} />
+  <meta property="og:title" content="Links Oficiais e Cardápio | Stela Gualberto Doceria" />
+  <meta
+    property="og:description"
+    content="Encomende bolos autorais, tortas, doces finos e latas presenteáveis no Centro de Divinópolis."
+  />
+  <meta property="og:image" content={`${BRAND.siteUrl}/img/og-stela-1200x630.webp`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#F8F3EE" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+  <script is:inline type="application/ld+json" set:html={schemaJson.replace(/</g, '\\u003c')} />
+  <script is:inline type="speculationrules" set:html={speculationJson.replace(/</g, '\\u003c')} />
+</head>
+<body class="lb-page">
+  <header class="lb-topbar">
+    <div class="lb-topbar__inner">
+      <a class="lb-topbar__home text-current" href="/" style="color: #32221F;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M19 12H5M11 18l-6-6 6-6"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            vector-effect="non-scaling-stroke"
+          />
+        </svg>
+        <span>Site completo</span>
+      </a>
+      <a
+        class="lb-topbar__handle text-current"
+        href={safeInstagramHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        style="color: #6B524C;"
+      >
+        {BRAND.instagramHandle}
+      </a>
+    </div>
+  </header>
+
+  <main class="lb-shell max-w-4xl mx-auto" id="conteudo-linkbio">
+    <LinkBioHero>
+      <h1 class="lb-hero__title">{BRAND.fullName}</h1>
+    </LinkBioHero>
+    <LinkBioCards />
+    <LinkBioShowcase />
+
+    <section class="lb-hours-card revela" aria-labelledby="horarios-linkbio">
+      <h2 id="horarios-linkbio" style="margin: 0 0 8px; font-size: 1.05rem;">
+        Horários de atendimento no Centro
+      </h2>
+      <table class="lb-hours-table">
+        <thead>
+          <tr>
+            <th scope="col">Dias</th>
+            <th scope="col">Horário</th>
+            <th scope="col">Atendimento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Terça a sexta</td>
+            <td>11h às 19h</td>
+            <td>Vitrine e encomendas</td>
+          </tr>
+          <tr>
+            <td>Sábado e domingo</td>
+            <td>10h às 17h</td>
+            <td>Vitrine e retiradas</td>
+          </tr>
+          <tr>
+            <td>Segunda-feira</td>
+            <td>Fechado</td>
+            <td>Atendimento no WhatsApp</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin: 12px 0 0; font-size: 0.8rem; color: var(--texto-suave);">
+        Curadoria por <strong>{BRAND.founder}</strong> · Atualizado em{' '}
+        <time datetime={BRAND.updatedIso}>{BRAND.updatedDisplay}</time>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="lb-footer">
+    <p style="margin: 0 0 12px;">
+      © 2026 {BRAND.fullName} · {BRAND.address.full}
+    </p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+      <a href="/" class="lb-topbar__home text-current" style="color: #32221F;">
+        Página Inicial
+      </a>
+      <a href="/#duvidas" class="lb-topbar__home text-current" style="color: #32221F;">
+        Dúvidas Frequentes
+      </a>
+      <a href="/politica-de-privacidade" class="lb-topbar__home text-current" style="color: #32221F;">
+        Privacidade
+      </a>
+      <button
+        type="button"
+        data-cookie-open=""
+        class="lb-topbar__home"
+        style="border: 0; font-family: inherit;"
+      >
+        Preferências de privacidade
+      </button>
+    </div>
+  </footer>
+
+  <CookieConsent />
+  <WhatsAppFloat />
+
+  <script>
+    import '../scripts/smoothMotion';
+    import '../scripts/interactions';
+  </script>
+</body>
+</html>
