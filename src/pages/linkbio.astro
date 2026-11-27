@@ -2,9 +2,11 @@
 import '../styles/site.css';
 import '../styles/linkbio.css';
 import { CookieConsent } from '../components/CookieConsent';
+import { ReviewLightbox } from '../components/ReviewLightbox';
 import { WhatsAppFloat } from '../components/WhatsAppFloat';
 import { LinkBioCards } from '../components/linkbio/LinkBioCards';
 import { LinkBioHero } from '../components/linkbio/LinkBioHero';
+import { LinkBioReviews } from '../components/linkbio/LinkBioReviews';
 import { LinkBioShowcase } from '../components/linkbio/LinkBioShowcase';
 import { BRAND } from '../data/brand';
 import { buildSiteSchemaGraph } from '../domain/seoSchema';
@@ -92,6 +94,7 @@ const safeInstagramHref = sanitizeUrl(BRAND.instagramUrl);
     </LinkBioHero>
     <LinkBioCards />
     <LinkBioShowcase />
+    <LinkBioReviews />
 
     <section class="lb-hours-card revela" aria-labelledby="horarios-linkbio">
       <h2 id="horarios-linkbio" style="margin: 0 0 8px; font-size: 1.05rem;">
@@ -156,6 +159,7 @@ const safeInstagramHref = sanitizeUrl(BRAND.instagramUrl);
   </footer>
 
   <CookieConsent />
+  <ReviewLightbox />
   <WhatsAppFloat />
 
   <script>

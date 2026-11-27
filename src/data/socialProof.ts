@@ -4,12 +4,6 @@ export interface HowItWorksStep {
   readonly description: string;
 }
 
-export interface TestimonialItem {
-  readonly author: string;
-  readonly context: string;
-  readonly quote: string;
-}
-
 export interface FaqItem {
   readonly question: string;
   readonly answer: string;
@@ -39,27 +33,6 @@ export const HOW_IT_WORKS_STEPS: readonly HowItWorksStep[] = [
     title: 'Retire ou receba fresco',
     description:
       'Seu pedido é preparado em produção própria na Av. Divino Espírito Santo e embalado pronto para servir ou presentear.',
-  },
-];
-
-export const TESTIMONIALS: readonly TestimonialItem[] = [
-  {
-    author: 'Marina Oliveira',
-    context: 'Encomenda de aniversário · Divinópolis',
-    quote:
-      'Os bolos têm um equilíbrio raro: massa leve, recheio cremoso e doçura na medida certa. Todos os convidados elogiaram e perguntaram de onde era.',
-  },
-  {
-    author: 'Rafael Mendes',
-    context: 'Vitrine no Centro · Av. Divino Espírito Santo',
-    quote:
-      'O atendimento na loja da Av. Divino Espírito Santo é sempre acolhedor e rápido. Quando preciso de uma sobremesa especial de última hora, a vitrine nunca decepciona.',
-  },
-  {
-    author: 'Camila Ferreira',
-    context: 'Presentes corporativos e familiares',
-    quote:
-      'As caixas e latas com a frase Minha doçura, pra você! encantam antes mesmo de abrir. Os brigadeiros e bombons chegam impecáveis e com sabor verdadeiro.',
   },
 ];
 

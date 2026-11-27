@@ -180,7 +180,8 @@
 }
 
 .lb-card--featured {
-  background: linear-gradient(135deg, var(--tinta), var(--tinta-2));
+  background-color: var(--tinta);
+  background-image: linear-gradient(135deg, var(--tinta), var(--tinta-2));
   color: var(--creme);
   border-color: rgba(200, 159, 98, 0.42);
 }
@@ -305,7 +306,7 @@
   font-size: 0.76rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--terracota);
+  color: var(--terracota-texto);
 }
 
 .lb-hours-table tr:last-child td {

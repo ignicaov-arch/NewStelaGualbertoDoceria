@@ -10,3 +10,4 @@ coverage/
 *.pem
 *.key
 .skills-gates/
+.visual-audit/

@@ -76,16 +76,8 @@ export function OrderFormSection() {
               <select
                 id="tipo"
                 name="tipo"
-                className="text-base"
+                className="ui-select text-base"
                 defaultValue={OCCASION_OPTIONS[0]}
-                style={{
-                  minHeight: '48px',
-                  padding: '10px 14px',
-                  borderRadius: '14px',
-                  border: '1px solid rgba(50, 34, 31, 0.18)',
-                  backgroundColor: 'var(--creme)',
-                  color: 'var(--tinta)',
-                }}
               >
                 {OCCASION_OPTIONS.map((option) => (
                   <option key={option} value={option}>
@@ -118,16 +110,8 @@ export function OrderFormSection() {
               <select
                 id="convidados"
                 name="convidados"
-                className="text-base"
+                className="ui-select text-base"
                 defaultValue={GUEST_TIER_OPTIONS[0]}
-                style={{
-                  minHeight: '48px',
-                  padding: '10px 14px',
-                  borderRadius: '14px',
-                  border: '1px solid rgba(50, 34, 31, 0.18)',
-                  backgroundColor: 'var(--creme)',
-                  color: 'var(--tinta)',
-                }}
               >
                 {GUEST_TIER_OPTIONS.map((option) => (
                   <option key={option} value={option}>

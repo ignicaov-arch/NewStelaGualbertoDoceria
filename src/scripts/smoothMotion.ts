@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 
 gsap.registerPlugin(ScrollTrigger);
 document.documentElement.classList.add('js');
@@ -93,10 +94,13 @@ function resolveHashTarget(href: string | null): HTMLElement | null {
 
 function setupLenis144Hz(): void {
   const lenis = new Lenis({
-    lerp: 0.082,
+    lerp: 0.06,
     smoothWheel: true,
     wheelMultiplier: 1.05,
     touchMultiplier: 1.35,
+    syncTouch: true,
+    syncTouchLerp: 0.075,
+    overscroll: true,
     autoRaf: false,
     respectReducedMotion: false,
     prevent: (node: HTMLElement) =>

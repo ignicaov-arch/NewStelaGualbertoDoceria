@@ -65,7 +65,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--terracota);
+  color: var(--terracota-texto);
 }
 
 .festa__titulo {
@@ -86,7 +86,7 @@
   gap: 8px;
   min-height: 44px;
   font-weight: 700;
-  color: var(--terracota);
+  color: var(--terracota-texto);
 }
 
 .festa--extra {
@@ -190,6 +190,10 @@
 }
 
 .menus .eyebrow {
+  color: var(--pessego-marca);
+}
+
+.menus .titulo-secao em {
   color: var(--pessego-marca);
 }
 

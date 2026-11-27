@@ -4,6 +4,7 @@ import {
   buildWhatsAppUrl,
   estimateCelebrationOrder,
 } from '../domain/whatsapp';
+import { hydrateGoogleReviews } from './googleReviewsHydrator';
 import { initCookieConsent } from './lgpdConsent';
 
 function hydrateStoreStatus(): void {
@@ -127,3 +128,4 @@ setupFaqAccordion();
 setupOrderSimulator();
 initCookieConsent();
 setupCookieModalDismiss();
+void hydrateGoogleReviews();

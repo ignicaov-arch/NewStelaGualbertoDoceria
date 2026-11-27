@@ -13,8 +13,9 @@ import {
   OCCASION_OPTIONS,
   PORTION_GUIDE,
 } from '../src/data/catalog';
+import { GOOGLE_REVIEWS_DATA } from '../src/data/googleReviewsData';
 import { LINKBIO_ACTIONS, LINKBIO_PROOFS, LINKBIO_VITRINE } from '../src/data/linkbioData';
-import { FAQ_ITEMS, HOW_IT_WORKS_STEPS, TESTIMONIALS } from '../src/data/socialProof';
+import { FAQ_ITEMS, HOW_IT_WORKS_STEPS } from '../src/data/socialProof';
 
 const BANNED_EMOJIS = ['🚀', '🔥', '✨', '💡', '🎉', '👉', '💪', '🎯', '⭐', '🏆', '💥', '🌟'];
 const FORBIDDEN_TERMS = ['Confete', 'Upward Academy', 'VPS', 'Docker', 'Hetzner'];
@@ -35,7 +36,8 @@ describe('Integridade do catálogo e copy oficial', () => {
     expect(OCCASION_OPTIONS).toHaveLength(5);
     expect(GUEST_TIER_OPTIONS).toHaveLength(4);
     expect(HOW_IT_WORKS_STEPS).toHaveLength(4);
-    expect(TESTIMONIALS).toHaveLength(3);
+    expect(GOOGLE_REVIEWS_DATA.verified).toBe(true);
+    expect(GOOGLE_REVIEWS_DATA.reviews.length).toBeGreaterThanOrEqual(4);
     expect(FAQ_ITEMS).toHaveLength(6);
     expect(LINKBIO_PROOFS).toHaveLength(3);
     expect(LINKBIO_ACTIONS).toHaveLength(5);
@@ -63,7 +65,6 @@ describe('Integridade do catálogo e copy oficial', () => {
       GIFT_STYLES,
       GIFT_STEPS,
       HOW_IT_WORKS_STEPS,
-      TESTIMONIALS,
       FAQ_ITEMS,
       LINKBIO_PROOFS,
       LINKBIO_ACTIONS,

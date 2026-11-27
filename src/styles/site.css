@@ -1,5 +1,6 @@
 @import './tokens.css';
 @import './sections.css';
+@import './reviews.css';
 
 *,
 *::before,
@@ -79,7 +80,7 @@ button {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--terracota);
+  color: var(--terracota-texto);
 }
 
 .titulo-secao {

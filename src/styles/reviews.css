@@ -1,0 +1,439 @@
+/* Scrollbars, dropdowns (<select>) e Carrossel Infinito Google 5 Estrelas */
+:root {
+  color-scheme: light;
+  --scrollbar-thumb: #6b524c;
+  --scrollbar-track: #efe4da;
+  accent-color: #b6493b;
+}
+
+.menus {
+  color-scheme: dark;
+}
+
+html {
+  scrollbar-width: auto;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-gutter: stable;
+}
+
+@supports not (scrollbar-color: auto) {
+  html {
+    scrollbar-width: auto;
+  }
+
+  html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+    border-radius: 9999px;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 9999px;
+    border: 2px solid var(--scrollbar-track);
+  }
+}
+
+.ui-select {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 44px 12px 14px;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--tinta);
+  background-color: var(--creme);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B524C' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px 16px;
+  border: 1px solid rgba(50, 34, 31, 0.18);
+  border-radius: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.ui-select option {
+  background-color: var(--papel);
+  color: var(--tinta);
+}
+
+@supports (appearance: base-select) {
+  .ui-select,
+  .ui-select::picker(select) {
+    appearance: base-select;
+  }
+
+  .ui-select {
+    background-image: none;
+  }
+
+  .ui-select::picker(select) {
+    background: var(--papel);
+    color: var(--tinta);
+    border: 1px solid rgba(50, 34, 31, 0.16);
+    border-radius: 14px;
+    padding: 6px;
+    box-shadow: var(--sombra-card);
+  }
+}
+
+.testimonials-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 28px;
+}
+
+.section-subtitle {
+  margin: 0 auto 18px;
+  max-width: 56ch;
+  color: var(--texto-suave);
+}
+
+.testimonials-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.testimonials-marquee-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+  padding: 6px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+}
+
+.marquee-single {
+  width: 100%;
+  margin-left: 0;
+  gap: 0;
+  padding: 8px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+}
+
+.marquee-row {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-ltr .marquee-track {
+  animation: scrollLTR 44s linear infinite;
+}
+
+.marquee-rtl .marquee-track {
+  animation: scrollRTL 44s linear infinite;
+}
+
+.testimonials-marquee-container.is-paused .marquee-track {
+  animation-play-state: paused !important;
+}
+
+@keyframes scrollLTR {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scrollRTL {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+.reviews-static-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+  justify-content: center;
+  gap: 16px;
+}
+
+.review-card {
+  position: relative;
+  flex-shrink: 0;
+  width: 320px;
+  height: 228px;
+  padding: 18px;
+  border-radius: 24px;
+  background-color: #fdfbf8;
+  color: #32221f;
+  border: 1px solid rgba(50, 34, 31, 0.12);
+  box-shadow: var(--sombra-suave);
+  cursor: zoom-in;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  transition: transform 240ms var(--curva-144), box-shadow 240ms ease;
+}
+
+.review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-card);
+}
+
+.review-card::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 46px;
+  background: linear-gradient(to top, #fdfbf8 24%, rgba(253, 251, 248, 0) 100%);
+  pointer-events: none;
+}
+
+.review-card--compact {
+  width: 268px;
+  height: 196px;
+  padding: 14px;
+  border-radius: 22px;
+}
+
+.gmaps-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gmaps-author-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.gmaps-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.gmaps-avatar-fallback {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fdfbf8;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.gmaps-author-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.gmaps-author-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #32221f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gmaps-author-sub {
+  font-size: 0.74rem;
+  color: #6b524c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gmaps-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gmaps-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.gmaps-time {
+  font-size: 0.75rem;
+  color: #6b524c;
+}
+
+.gmaps-text {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.48;
+  color: #46312d;
+  overflow: hidden;
+}
+
+.testimonials-section--linkbio {
+  margin-top: 22px;
+  padding: 18px 16px 20px;
+  border-radius: var(--lb-card-radius);
+  background-color: var(--papel);
+  border: 1px solid rgba(50, 34, 31, 0.1);
+  box-shadow: var(--sombra-suave);
+}
+
+.lb-reviews-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.lb-reviews-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.review-lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 260ms ease;
+}
+
+.review-lightbox-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.review-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(50, 34, 31, 0.74);
+  backdrop-filter: blur(4px);
+}
+
+.review-lightbox-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 500px;
+  max-height: 88vh;
+}
+
+.review-lightbox-card {
+  background: #fdfbf8;
+  color: #32221f;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--sombra-card);
+  max-height: 84vh;
+  overflow-y: auto;
+}
+
+.review-lightbox-close {
+  position: absolute;
+  top: -14px;
+  right: -10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background: #32221f;
+  color: #fdfbf8;
+  border: 2px solid #fdfbf8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.review-lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(50, 34, 31, 0.12);
+}
+
+.review-lightbox-badge {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #32221f;
+}
+
+.review-lightbox-rich {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.96rem;
+  line-height: 1.62;
+  color: #32221f;
+}
+
+.review-lightbox-hint {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #6b524c;
+}
+
+@media (max-width: 768px) {
+  .review-card {
+    width: 274px;
+    height: 204px;
+    padding: 14px;
+  }
+
+  .review-card--compact {
+    width: 248px;
+    height: 184px;
+    padding: 12px;
+  }
+}

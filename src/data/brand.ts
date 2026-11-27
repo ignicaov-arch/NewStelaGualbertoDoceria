@@ -74,7 +74,7 @@ export const BRAND: BrandConfig = {
   rating: {
     value: '4.7',
     best: '5',
-    count: '430',
+    count: '435',
   },
   schedule: [
     {
@@ -91,6 +91,6 @@ export const BRAND: BrandConfig = {
     },
   ],
   publishedIso: '2026-11-25',
-  updatedIso: '2026-11-25',
-  updatedDisplay: '25 de novembro de 2026',
+  updatedIso: '2026-11-27',
+  updatedDisplay: '27 de novembro de 2026',
 } as const;

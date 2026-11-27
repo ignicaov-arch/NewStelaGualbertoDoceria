@@ -33,7 +33,9 @@ describe('buildSiteSchemaGraph', () => {
       '@type': 'AggregateRating',
       ratingValue: '4.7',
       bestRating: '5',
-      ratingCount: '430',
+      worstRating: '1',
+      ratingCount: '435',
+      reviewCount: '435',
     });
     expect(faq).toBeDefined();
     expect((breadcrumb?.itemListElement as unknown[]).length).toBe(1);
